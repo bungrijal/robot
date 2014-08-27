@@ -29,7 +29,7 @@ class Robot
       self.command
     end
     if command == "REPORT"
-      if @x > 4 || @y > 4
+      if self.out_of_the_table?
         self.outside_the_table_alert
       else
         print "#{@x},#{@y},#{@f}\n"
@@ -52,7 +52,7 @@ class Robot
   def self.move_left
     if @x.nil? || @y.nil? || @f.nil?
       self.place_alert
-    elsif @x > 4 || @y > 4
+    elsif self.out_of_the_table?
       self.outside_the_table_alert
     else
       case @f
@@ -71,7 +71,7 @@ class Robot
   def self.move_right
     if @x.nil? || @y.nil? || @f.nil?
       self.place_alert
-    elsif @x > 4 || @y > 4
+    elsif self.out_of_the_table?
       self.outside_the_table_alert
     else
       case @f
@@ -90,7 +90,7 @@ class Robot
   def self.move_forward
     if @x.nil? || @y.nil? || @f.nil?
       self.place_alert
-    elsif @x > 4 || @y > 4
+    elsif self.out_of_the_table?
       self.outside_the_table_alert
     else
       case @f
@@ -113,6 +113,10 @@ class Robot
   def self.place_alert
     print "Please set the place first!\n"
     self.command
+  end
+
+  def self.out_of_the_table?
+    @x > 4 || @y > 4
   end
 
   def self.outside_the_table_alert
