@@ -19,7 +19,7 @@ LEFT or RIGHT (Rotate the robot 90 degrees in the specified direction without ch
 
 REPORT (will announce the X,Y and F of the robot)
 
-=== Example
+### Example
     ruby -r  ./lib/robot.rb -e "Robot.command"
     PLACE 1,2,EAST
     MOVE
