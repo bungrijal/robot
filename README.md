@@ -28,3 +28,6 @@ then type the command
 The Output is
 
     3,3,NORTH
+
+### TODO
+Write the test
