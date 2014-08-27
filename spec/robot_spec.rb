@@ -1,6 +1,5 @@
 require 'robot'
 RSpec.describe Robot do
-  it "only can the valid commands" do
-    
+  it "only accept the valid commands" do
   end
 end

@@ -1,9 +1,14 @@
 class Robot
   COMMANDS = ["MOVE", "LEFT", "RIGHT", "REPORT"]
   
-  def self.command
+  def self.command(command = nil)
     print "Write your command\n"
-    input = gets.strip
+    if gets.nil?
+      input = gets.strip
+    else
+      input = command
+    end
+    
     if self.validates_input?(input)
       self.execute_command(input)
     else
