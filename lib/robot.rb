@@ -22,7 +22,7 @@ class Robot
       self.set_place(command)
     end
     if command == "MOVE"
-      move_forward
+      self.move_forward
       self.command
     end
     if command == "LEFT"
