@@ -3,12 +3,7 @@ class Robot
   
   def self.command(command = nil)
     print "Write your command\n"
-    if gets.nil?
-      input = gets.strip
-    else
-      input = command
-    end
-    
+    input = gets.strip
     if self.validates_input?(input)
       self.execute_command(input)
     else
@@ -34,8 +29,12 @@ class Robot
       self.command
     end
     if command == "REPORT"
-      print "#{@x},#{@y},#{@f}\n"
-      exit
+      if @x > 4 || @y > 4
+        self.outside_the_table_alert
+      else
+        print "#{@x},#{@y},#{@f}\n"
+        exit
+      end
     end
   end
 
@@ -53,6 +52,8 @@ class Robot
   def self.move_left
     if @x.nil? || @y.nil? || @f.nil?
       self.place_alert
+    elsif @x > 4 || @y > 4
+      self.outside_the_table_alert
     else
       case @f
       when "NORTH"
@@ -70,6 +71,8 @@ class Robot
   def self.move_right
     if @x.nil? || @y.nil? || @f.nil?
       self.place_alert
+    elsif @x > 4 || @y > 4
+      self.outside_the_table_alert
     else
       case @f
       when "NORTH"
@@ -87,6 +90,8 @@ class Robot
   def self.move_forward
     if @x.nil? || @y.nil? || @f.nil?
       self.place_alert
+    elsif @x > 4 || @y > 4
+      self.outside_the_table_alert
     else
       case @f
       when "NORTH"
@@ -108,6 +113,11 @@ class Robot
   def self.place_alert
     print "Please set the place first!\n"
     self.command
+  end
+
+  def self.outside_the_table_alert
+    print "Robot isn't on the table\n"
+    exit
   end
 
   def self.validates_input?(command)
