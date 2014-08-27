@@ -5,7 +5,9 @@
 - The robot is free to roam around the surface of the table, but must be prevented from falling to destruction. Any movement that would result in the robot falling from the table must be prevented, however further valid movement commands must still be allowed.
 
 === Usage
+```
 ruby -r  ./lib/robot.rb -e "Robot.command"
+```
 then type the command
 
 === Allowed Commands
