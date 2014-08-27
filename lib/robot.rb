@@ -30,7 +30,7 @@ class Robot
       self.command
     end
     if command == "RIGHT"
-      
+      self.move_right
       self.command
     end
     if command == "REPORT"
